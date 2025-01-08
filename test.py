@@ -1,3 +1,8 @@
+"""
+IGNORE THIS FILE   <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+just a file for me in order to test stuff
+"""
+
 # class Test():
 #     def __init__(self, num, next):
 #         self.num = num
@@ -49,5 +54,11 @@
 # val = 0
 # if val:
 #     print("val is true")
-import random
-print(random.choice([1,4]))
+
+# def func(he: int):
+#     print(he)
+# hi: int = 3.2
+# hello :int = "hello"
+# func(22)
+# func("g")`
+dict_test = {"hello" : 5 , "lolla" : "5"}

@@ -1,0 +1,18 @@
+Note
+childs to dictionnaries
+
+Handling duplicates
+set. having every data in a set
+if len(set) == len(set.add(data))
+
+
+dict: if len(set) == len(set.add(data))
+ Make a methode that make a new name for eac duplicate
+_____________
+set
+eassy assess
+no naming stuff methode
+can have multiple duplicate as long as diff parent
+
+dict
+useing naming for keys.

@@ -36,6 +36,17 @@ class Single_linked_list():
         self.__tail = self.__tail.next
         self.__lenght += 1
 
+    def add_node_by_list(self, new_data: list or tuple) -> None:
+        """
+        Adds a new nodes for each value in the list. The elements are added in index order starting from 0.
+        :param new_data: a list or tuple with all element that needs to be added to the linked list
+        :return:
+        """
+        if type(new_data) is list:
+            for data in new_data:
+                self.add_node(data)
+        else: raise TypeError('new_data is not a list or tuple')
+
     def next(self, skip_number= 1) -> any:
         """
         Move to the next node and return it value
@@ -44,8 +55,9 @@ class Single_linked_list():
         """
         #
         assert skip_number >= 1, "Invalid skip number (must be greater than 1)"
-
-        if self.__idx + skip_number  >= self.__lenght:
+        if self.__lenght == 0 :
+            raise IndexError('list empty')
+        if self.__idx + skip_number  >= self.__lenght: ##########
             raise IndexError("Out of range")
 
         for _ in range(skip_number):
@@ -58,6 +70,13 @@ class Single_linked_list():
 
     def __len__(self) -> int:
         return self.__lenght
+
+    def reset(self) -> None:
+        """
+        Reset the linked list to the beguinning
+        :return:
+        """
+        self.__node= self.__head
 
     # def __repr__(self):
     #     list = []
@@ -74,10 +93,15 @@ class Single_linked_list():
     #             list.append(str(self.curent_node))
 
     def __iter__(self) -> any:
-        pass
+        return self
 
     def __next__(self) -> any:
-        pass
+        if self.__idx  > len(self):
+            raise StopIteration
+        value = self.__node
+        self.next()
+
+        return value
 
     def index(self):
         return self.__idx
@@ -106,17 +130,27 @@ class Single_linked_list():
 
 
 
+def test():
+    linked = Single_linked_list()
+    linked.add_node('Mohamed')
+    linked.add_node(1)
+    linked.add_node(2)
+    linked.add_node(3)
+    linked.add_node("vovador")
 
-linked = Single_linked_list()
-linked.add_node('Mohamed')
-linked.add_node(1)
-linked.add_node(2)
-linked.add_node(3)
-linked.add_node("vovador")
-
-for node in range(len(linked)-1):
-    print(linked.curent_node())
-    print(linked.next())
+    # for node in range(len(linked)-1):
+    #     print(linked.curent_node())
+    #     print(linked.next())
 
 
-print(linked)
+    print(linked)
+    print(f"\n ________________________ \n")
+    for i in linked:
+        print(i)
+def test2():
+    linked = Single_linked_list()
+    print(linked)
+    linked.next()
+
+if __name__ == '__main__':
+    test()
